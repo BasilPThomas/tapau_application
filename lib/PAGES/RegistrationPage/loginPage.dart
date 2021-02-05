@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:tapau_application/home.dart';
 import 'package:tapau_application/PAGES/RegistrationPage/signupPage.dart';
 import 'package:tapau_application/PAGES/RegistrationPage/forgotPassword.dart';
@@ -18,10 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _submitButton()  {
     return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>Home()));
-      },
+        onTap: () => pushNewScreen(context, screen: Home(menuScreenContext: context,)),
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 15),

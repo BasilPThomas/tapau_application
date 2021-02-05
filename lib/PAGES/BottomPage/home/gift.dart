@@ -55,7 +55,7 @@ class _GiftPageState extends State<GiftPage> {
               child: Column(
                 children: [
                   AspectRatio(
-                    aspectRatio: 1.5,
+                    aspectRatio: 2,
                     child:Image(image: AssetImage('images/Group 692.png'),),),
                   Text('Refer now & earn up to Rs. 500',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                   SizedBox(height: 10,),

@@ -19,7 +19,7 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(vertical: 15,horizontal: 30),
+        // padding: EdgeInsets.symmetric(vertical: 15,horizontal: 30),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(30)),

@@ -13,9 +13,11 @@ import 'package:tapau_application/PAGES/RegistrationPage/loginPage.dart';
 import 'package:flutter/painting.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:http/http.dart' as http;
+import 'package:tapau_application/PAGES/BottomPage/home/gift.dart';
 
 class PageHome extends StatefulWidget {
-  PageHome({Key key}) : super(key: key);
+  // final String title;
+  // PageHome(this.title) : assert(title != null);
   @override
   _PageHomeState createState() => _PageHomeState();
 }
@@ -25,7 +27,6 @@ class _PageHomeState extends State<PageHome> {
   Future<http.Response> fetchPost() {
     return http.post('https://jsonplaceholder.typicode.com/posts/PageHome',);
   }
-  Function setTabIndex;
 
   Widget _threeComboOffer() {
     return Container(
@@ -338,7 +339,7 @@ class _PageHomeState extends State<PageHome> {
               backgroundColor: Colors.transparent,
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.shopping_cart),
-                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>PageHome()));}),
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>GiftPage()));}),
               ]),
         ),),
       body: Container(

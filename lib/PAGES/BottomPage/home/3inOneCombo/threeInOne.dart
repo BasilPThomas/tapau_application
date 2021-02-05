@@ -333,7 +333,7 @@ class _ThreeInOneState extends State<ThreeInOne>  with SingleTickerProviderState
 
     Widget _mealPackOfThree(){
       return SizedBox(
-        height: 160,
+        height: 115,
         child: Column(
           children: [
             Row(
@@ -384,7 +384,8 @@ class _ThreeInOneState extends State<ThreeInOne>  with SingleTickerProviderState
                 ),
                 _vegAndNonVeg(),
                 SizedBox(height: 20,),
-                _subscribeButton()
+                _subscribeButton(),
+                SizedBox(height: 60,),
               ],),
           ),
         ),);

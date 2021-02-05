@@ -5,7 +5,6 @@ import 'package:tapau_application/PAGES/RegistrationPage/loginPage.dart';
 import 'package:tapau_application/PAGES/RegistrationPage/forgotPassword.dart';
 import 'package:tapau_application/home.dart';
 import 'package:tapau_application/PAGES/BottomPage/home/1inOneCombo/oneInOne.dart';
-import 'package:tapau_application/home1.dart';
 
 void main() {
   runApp(MyApp());

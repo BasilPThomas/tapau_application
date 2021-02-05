@@ -307,25 +307,28 @@ class _TwoInOneState extends State<TwoInOne> with SingleTickerProviderStateMixin
   }
 
   Widget _mealPackOfThree(){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          children: [
-            Text("2 in 1 Meal Pack", style: TextStyle(fontSize: 21, fontFamily:'Poppins',fontWeight: FontWeight.bold),),
-            SizedBox(width: 20,),
-            _dropdownVaules(),
-          ],
-        ),
-        SizedBox(height: 15,),
-        Center(
-          child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              " Integer non lectus eu urna euismod ullamcorper in ac nulla. "
-              "Curabitur auctor consectetur lacus eu hendrerit.", style: TextStyle(fontSize: 12, fontFamily:'Poppins',fontWeight: FontWeight.bold),),
-        ),
-        SizedBox(height: 35,),
-      ],
+    return SizedBox(
+      height: 115,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Text("2 in 1 Meal Pack", style: TextStyle(fontSize: 21, fontFamily:'Poppins',fontWeight: FontWeight.bold),),
+              SizedBox(width: 20,),
+              _dropdownVaules(),
+            ],
+          ),
+          SizedBox(height: 15,),
+          Center(
+            child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                " Integer non lectus eu urna euismod ullamcorper in ac nulla. "
+                "Curabitur auctor consectetur lacus eu hendrerit.", style: TextStyle(fontSize: 12, fontFamily:'Poppins',fontWeight: FontWeight.bold),),
+          ),
+
+        ],
+      ),
     );
   }
 
@@ -386,7 +389,8 @@ class _TwoInOneState extends State<TwoInOne> with SingleTickerProviderStateMixin
                 ),
                 _vegAndNonVeg(),
                 SizedBox(height: 10,),
-                _subscribeButton()
+                _subscribeButton(),
+                SizedBox(height: 60,),
               ],),
           ),
         ),

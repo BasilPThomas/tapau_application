@@ -11,14 +11,13 @@ class MyQRCodePage extends StatefulWidget {
 }
 
 class _MyQRCodePageState extends State<MyQRCodePage> {
-  bool pressAttention = false;
-  bool isEnabled = true ;
-  enableButton () {
-    setState(() { isEnabled = true; }); }
-  disableButton(){
-    setState(() { isEnabled = false; }); }
-  sampleFunction(){
-    print('Clicked'); }
+  final List<String> categoryList = [
+    'Home',
+    'Office',
+  ];
+  int selectedCategoryIndex = 0;
+  Color pink = Colors.pink[900];
+  Color white = Colors.white;
 
   Widget _subscribeButton() {
     return InkWell(
@@ -50,30 +49,31 @@ class _MyQRCodePageState extends State<MyQRCodePage> {
     );
   }
 
-  Widget _chooseThePlace() {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          RaisedButton(
-            child: Text(" Home "),
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30.0),),
-            onPressed: isEnabled ? () => sampleFunction() : null,
-            color: pressAttention ? Colors.purple : Colors.white,
-            padding: EdgeInsets.fromLTRB(40, 15, 40, 15),
+  Widget _buildCategory(BuildContext context, int index){
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          selectedCategoryIndex = index;
+        });
+      },
+      child: Container(
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25.0),
+          color: selectedCategoryIndex == index ?
+          pink : white,
+        ),
+        child: Center(
+          child: Text(
+            categoryList[index],
+            style: TextStyle(
+                fontWeight: selectedCategoryIndex == index ? FontWeight.bold : FontWeight.normal,
+                color: selectedCategoryIndex == index ? white : pink
+            ),
           ),
-          SizedBox(width: 50,),
-          RaisedButton(
-            child: Text(" Office"),
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30.0),),
-            onPressed: enableButton,
-            color: pressAttention ? Colors.purple : Colors.white,
-            padding: EdgeInsets.fromLTRB(40, 15, 40, 15),
-          ),
-          SizedBox(width: 10,),
-        ]);
+        ),
+      ),
+    );
   }
 
   @override
@@ -84,15 +84,22 @@ class _MyQRCodePageState extends State<MyQRCodePage> {
         title:Center(child: Text("My QR code",style: TextStyle(fontWeight: FontWeight.bold),textAlign:TextAlign.center,)),
       ),
       body: Container(
-          margin: EdgeInsets.symmetric(vertical: 50,horizontal: 30),
+          margin: EdgeInsets.symmetric(horizontal: 30),
           child:Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Container(
-                    height: 210,
-                    width: 350,
-                    child: _chooseThePlace()),
-                // SizedBox(height: 100,),
+                  height: 55,
+                  child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categoryList.length,
+                      itemBuilder: (context,index){
+                        return _buildCategory(context,index);
+                      }
+                  ),
+                ),
+                SizedBox(height: 120,),
                 Container(
                     height: 100,
                     width: 180,
